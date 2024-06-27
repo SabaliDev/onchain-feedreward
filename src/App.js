@@ -3,10 +3,8 @@ import './App.css';
 import { connectWallet, rewardUser, getFeedbackRewardsContract, addValidHashedToken } from './eth';
 import analyseFeedback from './AiAnalysis.js';
 import RewardModal from './components/popup.js';
-import emailjs from 'emailjs-com';
 import sha256 from 'crypto-js/sha256';
-import qualifyImage from './images/QualifyButton.png';
-import feedbackImage from './images/feedbackArrow.png';
+
 
 function App() {
   const [userAddress, setUserAddress] = useState('');
@@ -167,21 +165,16 @@ function App() {
        {isWalletConnected && (
         <div style={{ position: 'absolute', top: 0, left: 0, padding: '10px', zIndex: 1000, fontStyle: 'italic', fontSize: '12px' }}>
           Connected: {`${userAddress.substring(0, 4)}...${userAddress.substring(userAddress.length - 5)}`}
-          <br />
-          {isMorphTestnet ? "Connected to Morph Testnet" : "Please connect to Morph Testnet!"}
+         
         </div>
       )}
       <>
         <div className="feedback-container">
-        <h1>Give Feedback. <br></br> Get <span style={{color: '#00bf63'}}>Paid</span>. </h1>
+        <h1>Give Feedback. <br></br> Get Rewarded. </h1>
 
         <div style={{ display: 'flex', justifyContent: 'flex-start' }}>
           <p>Get instantly rewarded for your constructive criticism.</p>
-          <img 
-      src={feedbackImage} 
-      alt="Feedback Arrow" 
-      style={{ marginLeft: '100px', height: '170px', width: 'auto' }} 
-    />
+    
   </div>
             <textarea 
             placeholder=
@@ -195,22 +188,17 @@ function App() {
               Connect Wallet
             </button>
           )}
-          {/* Image equivalent to the Qualify for Feedback button */}
-      <div className="qualify-button-container" style={{ position: 'fixed', top: '20px', right: '20px' }}>
-            <img 
-              src={qualifyImage} 
-              alt="Qualify for Feedback" 
-              onClick={!isQualifying ? handleQualifyForFeedback : undefined} 
-              style={{
-                cursor: isQualifying ? 'default' : 'pointer',
-                width: '500px',
-                height: 'auto',
-                position: 'fixed', 
-                top: '20px', 
-                right: '20px', 
-                cursor: 'pointer'
-              }}
-            />
+       
+      <div className="qualify-button-container" style={{ position: 'fixed', top: '20px', right: '-300px' }}>
+
+     
+            <button 
+             onClick={!isQualifying ? handleQualifyForFeedback : undefined} 
+            >
+              ZK-Prove First
+            </button>
+       
+     
             {isQualifying && (
   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
     <div className="button-spinner-overlay"></div>
