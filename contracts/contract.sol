@@ -6,7 +6,7 @@ interface IERC20 {
     function balanceOf(address account) external view returns (uint256);
 }
 
-contract DecentraformV1 {
+contract FeedReward {
     address public owner;
     IERC20 public usdt;
     uint256 public constant REWARD_AMOUNT = 100000000000000000; // 0.10 USDT reward based on 

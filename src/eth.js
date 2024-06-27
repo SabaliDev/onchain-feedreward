@@ -1,7 +1,7 @@
 import { ethers } from 'ethers';
 import contractABI from './utils/contractAbi.json';
 
-const contractAddress = '0x2e070C5256AdfD50776461A068e615E5F003c0B5';
+const contractAddress = '0x6801474CB41342Ade2215cAF0c08D96F51F5c0d7';
 
 // connect the wallet export function
 export async function connectWallet() {
@@ -56,14 +56,14 @@ export async function addValidHashedToken(signer, hashedToken) {
 export async function checkAndSwitchToMorphTestnet() {
   if (!window.ethereum) throw new Error('Ethereum object not found, please install MetaMask.');
 
-  const morphTestnetChainId = '0xa96'; // Chain ID for Morph Testnet in hexadecimal
+  const sepoliaChainId = '11155111'; // Chain ID for Sepolia
   try {
     const currentChainId = await window.ethereum.request({ method: 'eth_chainId' });
-    if (currentChainId !== morphTestnetChainId) {
+    if (currentChainId !== sepoliaChainId) {
       try {
         await window.ethereum.request({
           method: 'wallet_switchEthereumChain',
-          params: [{ chainId: morphTestnetChainId }],
+          params: [{ chainId: sepoliaChainId }],
         });
       } catch (switchError) {
         // This error code indicates that the chain has not been added to MetaMask.
@@ -73,10 +73,10 @@ export async function checkAndSwitchToMorphTestnet() {
               method: 'wallet_addEthereumChain',
               params: [
                 {
-                  chainId: morphTestnetChainId,
-                  rpcUrl: "https://rpc-testnet.morphl2.io", 
-                  blockExplorerUrl: "https://explorer-testnet.morphl2.io",
-                  chainName: "Morph Testnet",
+                  chainId: sepoliaChainId,
+                  rpcUrl: "https://sepolia.infura.io/v3/", 
+                  blockExplorerUrl: "https://sepolia.etherscan.io",
+                  chainName: "Sepolia test network",
                   nativeCurrency: {
                     name: "Ether",
                     symbol: "ETH", 
@@ -86,10 +86,10 @@ export async function checkAndSwitchToMorphTestnet() {
               ],
             });
           } catch (addError) {
-            throw new Error('Failed to add the  Goerli.');
+            throw new Error('Failed to add the  Sepolia');
           }
         } else {
-          throw new Error('Failed to switch to the Goerli Testnet.');
+          throw new Error('Failed to switch to the Sepolia Testnet.');
         }
       }
     }
