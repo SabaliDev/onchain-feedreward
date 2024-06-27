@@ -23,7 +23,7 @@
 1. **Clone the Repository**
 
    ```sh
-   git clone https://github.com/yourusername/feedreward.git
+   git clone https://github.com/SabaliDev/onchain-feedreward.git
    cd feedreward
    ```
 
@@ -160,6 +160,3 @@ Contributions are welcome! Please fork the repository and create a pull request 
 
 This project is licensed under the MIT License.
 
----
-
-Feel free to customize this README file further to better match the specifics of your project.
