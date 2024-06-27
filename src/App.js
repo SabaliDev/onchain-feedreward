@@ -3,10 +3,8 @@ import './App.css';
 import { connectWallet, rewardUser, getFeedbackRewardsContract, addValidHashedToken } from './eth';
 import analyseFeedback from './AiAnalysis.js';
 import RewardModal from './components/popup.js';
-import emailjs from 'emailjs-com';
 import sha256 from 'crypto-js/sha256';
-import qualifyImage from './images/QualifyButton.png';
-import feedbackImage from './images/feedbackArrow.png';
+
 
 function App() {
   const [userAddress, setUserAddress] = useState('');
