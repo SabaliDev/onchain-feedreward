@@ -39,8 +39,8 @@ function App() {
         setIsWalletConnected(true);
         // Check for Morph Testnet
         const chainId = await window.ethereum.request({ method: "eth_chainId" });
-        const isMorphTestnet = chainId === "0xa96";
-        setIsMorphTestnet(isMorphTestnet);
+        const iSepoliaTestnet = chainId === "0xaa36f7";
+        setIsMorphTestnet(iSepoliaTestnet);
         return { wasConnected: true, signer };
       } else {
         return { wasConnected: false };

@@ -56,7 +56,7 @@ export async function addValidHashedToken(signer, hashedToken) {
 export async function checkAndSwitchToMorphTestnet() {
   if (!window.ethereum) throw new Error('Ethereum object not found, please install MetaMask.');
 
-  const sepoliaChainId = '11155111'; // Chain ID for Sepolia
+  const sepoliaChainId = '0xaa36f7'; // Chain ID for Sepolia
   try {
     const currentChainId = await window.ethereum.request({ method: 'eth_chainId' });
     if (currentChainId !== sepoliaChainId) {
